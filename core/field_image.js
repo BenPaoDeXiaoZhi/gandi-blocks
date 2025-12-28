@@ -151,7 +151,7 @@ Blockly.FieldImage.prototype.setValue = function(src) {
     var mediaPrefix = "media://"; // media://repeat.svg -> path/icons/control_repeat.svg
     if (src.startsWith(mediaPrefix)) { // use default media path
       var pathToMedia = this.sourceBlock_.workspace.options.pathToMedia;
-      src = pathToMedia + "icons/control_" + src.substring(mediaPrefix.length); // TODO: Fix the strange media url
+      src = pathToMedia + src.substring(mediaPrefix.length); // I found out that the file already existed
     }
     this.imageElement_.setAttributeNS('http://www.w3.org/1999/xlink',
         'xlink:href', src || '');
