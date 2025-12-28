@@ -146,12 +146,12 @@ Blockly.FieldImage.prototype.setValue = function(src) {
     // No change if null.
     return;
   }
-  var mediaPrefix = "media://"; // media://repeat.svg -> path/icons/control_repeat.svg
-  if (src.startsWith(mediaPrefix)) { // use default media path
-    src = this.sourceBlock_.workspace.options.pathToMedia + "icons/control_" + src.substring(mediaPrefix.length);
-  }
   this.src_ = src;
   if (this.imageElement_) {
+    var mediaPrefix = "media://"; // media://repeat.svg -> path/icons/control_repeat.svg
+    if (src.startsWith(mediaPrefix)) { // use default media path
+      src = this.sourceBlock_.workspace.options.pathToMedia + "icons/control_" + src.substring(mediaPrefix.length);
+    }
     this.imageElement_.setAttributeNS('http://www.w3.org/1999/xlink',
         'xlink:href', src || '');
   }
