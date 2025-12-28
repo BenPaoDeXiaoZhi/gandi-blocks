@@ -148,7 +148,7 @@ Blockly.FieldImage.prototype.setValue = function(src) {
   }
   this.src_ = src;
   if (this.imageElement_) {
-    var mediaPrefix = "media://"; // media://repeat.svg -> path/icons/control_repeat.svg
+    var mediaPrefix = "media://"; // media://repeat.svg -> path/repeat.svg
     if (src.startsWith(mediaPrefix)) { // use default media path
       var pathToMedia = this.sourceBlock_.workspace.options.pathToMedia;
       src = pathToMedia + src.substring(mediaPrefix.length); // I found out that the file already existed
