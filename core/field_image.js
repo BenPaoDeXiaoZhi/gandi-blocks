@@ -150,7 +150,8 @@ Blockly.FieldImage.prototype.setValue = function(src) {
   if (this.imageElement_) {
     var mediaPrefix = "media://"; // media://repeat.svg -> path/icons/control_repeat.svg
     if (src.startsWith(mediaPrefix)) { // use default media path
-      src = this.sourceBlock_.workspace.options.pathToMedia + "icons/control_" + src.substring(mediaPrefix.length);
+      var pathToMedia = this.sourceBlock_.workspace.options.pathToMedia;
+      src = pathToMedia + "icons/control_" + src.substring(mediaPrefix.length); // TODO: Fix the strange media url
     }
     this.imageElement_.setAttributeNS('http://www.w3.org/1999/xlink',
         'xlink:href', src || '');
